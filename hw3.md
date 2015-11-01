@@ -13,7 +13,7 @@ select count(order_customer_id) from orders group by order_status
 3.(20%) List product id and its total sales value (sales value = price * quantity) (hint: see table order_items)
 
 ```sql
-
+select order_item_product_id, sum(order_item_product_price * order_item_quantity) from order_items group by order_item_product_id
 ```
 
 4.(20%) List distinct customers’ name (combine first name and last name as single column) who live in California (i.e., CA) but not in the city whose name begin with San.
