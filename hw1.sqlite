@@ -1,0 +1,13 @@
+# 1
+select distinct customer_fname, customer_lname from customers where customer_state = 'CA' and (customer_city not like
+'San %')
+
+select distinct customer_fname, customer_lname from customers where customer_state = 'CA' and (customer_city not like
+'San%')
+
+# 2
+select order_id from orders where order_status <> 'CLOSED' and order_status <> 'COMPLETE'
+
+# 3
+select product_name from products where (product_price not between 99 and 100) and (product_price between 100
+and 150) and (product_price not between 150 and 151)
