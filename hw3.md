@@ -19,7 +19,7 @@ select order_item_product_id, sum(order_item_product_price * order_item_quantity
 4.(20%) List distinct customers’ name (combine first name and last name as single column) who live in California (i.e., CA) but not in the city whose name begin with San.
 
 ```sql
-select distinct concat(customer_fname,' ' ,customer_lname) from customers where customer_state = 'CA' and (customer_city not like 'San%')
+select distinct concat(customer_fname, ' ',customer_lname) from customers where customer_state = 'CA' and (customer_city not like 'San%')
 ```
 
 5.(10%) List number of orders which are on-progress. (i.e., not closed, not complete)
