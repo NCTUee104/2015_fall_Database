@@ -50,7 +50,7 @@ public class Progression2_0450742 extends Progression_0450742 implements Calcula
      * @throws  ArithmeticException If adding process is overflow.
      */
     public final long sum(final int r) {
-        if (r < 1) {
+        if (r < 0 || r >= super.returnArray().length) {
             throw new ArrayIndexOutOfBoundsException();
         }
         long ans = 0;
@@ -73,8 +73,8 @@ public class Progression2_0450742 extends Progression_0450742 implements Calcula
      * @throws  ArithmeticException If adding process is overflow.
      */
     public final double avg(final int r) {
-        if (r < 1) {
-            throw new ArrayIndexOutOfBoundsException();
+        if (r < 0 || r >= super.returnArray().length) {
+            throw new ArrayIndexOutOfBoundsException("Index must be < 1 or ");
         }
         double ans = 0;
         long[] row = super.returnRow(r);
