@@ -68,8 +68,6 @@ class InvalidProgressionSizeException extends Exception {
                 return "ArithmeticException : Out of range of long type";
             case 2:
                 return "ArrayIndexOutOfBoundsException : m, n should >=0 or < array size";
-            case 3:
-                return "OutOfMemoryError : No enough memory to construct array";
             default:
                 return "other error occur";
         }
