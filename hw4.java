@@ -79,8 +79,8 @@ public class Progression2_0450742 extends Progression_0450742 implements Calcula
             throw new ArrayIndexOutOfBoundsException("Index must be >= 0 or < array length.");
         }
         double ans = 0;
-        long[] row = this.returnRow(r);
-        for (long i : row) {
+        long[] row = super.returnRow(r);
+        for (double i : row) {
             if (ans + i < ans) {
                 throw new ArithmeticException("Arithmetic overflow.");
             } else {
@@ -93,22 +93,11 @@ public class Progression2_0450742 extends Progression_0450742 implements Calcula
     /*
     public static void main(String[] args){
         Progression2_0450742 a = new Progression2_0450742(10,10);
-        a.showArray();
-        a.showCol(3);
-        a.showRow(6);
-        long[][] x = a.returnArray();
-        for(int i=0;i<x.length;i++){
-            for(int j=0;j<x[i].length;j++){
-                System.out.print(x[i][j]+"\t");
-            }
-            System.out.println("");
-        }
-        long[] y = a.returnCol(3);
-        System.out.println(Arrays.toString(y));
-        long[] z = a.returnRow(6);
-        System.out.println(Arrays.toString(z));
+        System.out.println(a.sum(8));
+        System.out.println(a.avg(8));
     }
     */
+
 }
 
 class Progression_0450742 {
