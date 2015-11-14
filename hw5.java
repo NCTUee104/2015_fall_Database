@@ -70,8 +70,6 @@ class InvalidProgressionSizeException extends Exception {
                 return "ArrayIndexOutOfBoundsException : m, n should >=0 or < array size";
             case 3:
                 return "OutOfMemoryError : No enough memory to construct array";
-            case 4:
-                return "";
             default:
                 return "other error occur";
         }
