@@ -18,41 +18,11 @@ class InvalidProgressionSizeException extends Exception {
 
     /**
      * Instantiates a new Invalid progression size exception.
-     */
-    InvalidProgressionSizeException() {
-        super();
-        super.getMessage();
-    }
-
-    /**
-     * Instantiates a new Invalid progression size exception.
      *
      * @param errorType INT type
      */
     InvalidProgressionSizeException(final int errorType) {
         this.e = errorType;
-        super.getMessage();
-    }
-
-    /**
-     * Instantiates a new Invalid progression size exception.
-     *
-     * @param msg   the msg
-     * @param cause the cause
-     */
-    InvalidProgressionSizeException(final String msg, final Throwable cause) {
-        super(msg, cause);
-        this.getMessage();
-    }
-
-    /**
-     * Instantiates a new Invalid progression size exception.
-     *
-     * @param cause the cause
-     */
-    InvalidProgressionSizeException(final Throwable cause) {
-        super(cause);
-        this.getMessage();
     }
 
     /**
