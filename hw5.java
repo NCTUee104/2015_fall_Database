@@ -19,7 +19,7 @@ class InvalidProgressionSizeException extends Exception {
     /**
      * Instantiates a new Invalid progression size exception.
      *
-     * @param errorType INT type
+     * @param errorType specify which exception type occur
      */
     InvalidProgressionSizeException(final int errorType) {
         this.e = errorType;
