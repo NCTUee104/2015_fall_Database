@@ -50,6 +50,7 @@ class InvalidProgressionSizeException extends Exception {
  * @author Edward
  * @version 3.0
  * @since   2015-11-09
+ * 
  * Default Interface is Public.
  */
 interface Calculator {
@@ -59,6 +60,7 @@ interface Calculator {
      * @param  r                               which row number needed to use
      * @return                                 sum value of long type
      * @throws InvalidProgressionSizeException homework-defined exception
+     * 
      * Default methods in Interface are all Public and Abstract.
      */
     long sum(int r) throws InvalidProgressionSizeException;
@@ -69,6 +71,7 @@ interface Calculator {
      * @param  r                               which row number needed to use.
      * @return                                 average value of double type.
      * @throws InvalidProgressionSizeException homework-defined exception
+     * 
      * Default methods in Interface are all Public and Abstract.
      */
     double avg(int r) throws InvalidProgressionSizeException;
