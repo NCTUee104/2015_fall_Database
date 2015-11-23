@@ -56,9 +56,9 @@ interface Calculator {
     /**
      * Sum long.
      *
-     * @param   r    which row number needed to use.
-     * @return       sum value of long type.
-     * @throws InvalidProgressionSizeException hw
+     * @param  r                               which row number needed to use
+     * @return                                 sum value of long type
+     * @throws InvalidProgressionSizeException homework-defined exception
      * Default methods in Interface are all Public and Abstract.
      */
     long sum(int r) throws InvalidProgressionSizeException;
@@ -66,9 +66,9 @@ interface Calculator {
     /**
      * Avg double.
      *
-     * @param   r    which row number needed to use.
-     * @return       average value of double type.
-     * @throws InvalidProgressionSizeException hw
+     * @param  r                               which row number needed to use.
+     * @return                                 average value of double type.
+     * @throws InvalidProgressionSizeException homework-defined exception
      * Default methods in Interface are all Public and Abstract.
      */
     double avg(int r) throws InvalidProgressionSizeException;
@@ -81,9 +81,9 @@ class Progression2_0450742 extends Progression_0450742 implements Calculator {
     /**
      * Instantiates a new Progression 2 0450742.
      *
-     * @param m row
-     * @param n col
-     * @throws InvalidProgressionSizeException hw
+     * @param  m                               row
+     * @param  n                               col
+     * @throws InvalidProgressionSizeException homework-defined exception
      */
     Progression2_0450742(final int m, final int n) throws InvalidProgressionSizeException {
         super(m, n);
@@ -117,7 +117,7 @@ class Progression2_0450742 extends Progression_0450742 implements Calculator {
      *
      * @param   r                               specify which row needed to use.
      * @return                                  average value.
-     * @throws  InvalidProgressionSizeException hw
+     * @throws  InvalidProgressionSizeException homework-defined exception
      */
     public final double avg(final int r) throws InvalidProgressionSizeException {
         if (r < 0 || r >= super.returnArray().length) {
@@ -159,7 +159,7 @@ class Progression_0450742 {
      *
      * @param  m                               the m is row of ProgressionArray
      * @param  n                               the n is col of ProgressionArray
-     * @throws InvalidProgressionSizeException hw
+     * @throws InvalidProgressionSizeException homework-defined exception
      */
     Progression_0450742(final int m, final int n) throws InvalidProgressionSizeException {
         if (m < 1 || n < 1) {
@@ -199,9 +199,9 @@ class Progression_0450742 {
     /**
      * Print out the whole row with respect to given r.
      *
-     * @param r the r is the row number
-     *          which corresponding to whole row in Progression Array
-     * @throws InvalidProgressionSizeException hw
+     * @param  r                               the r is the row number
+     *                                         which corresponding to whole row in Progression Array
+     * @throws InvalidProgressionSizeException homework-defined exception
      */
     public final void showRow(final int r) throws InvalidProgressionSizeException {
         if (r < 0 || r >= row) {
@@ -217,9 +217,9 @@ class Progression_0450742 {
     /**
      * Print out the whole column with respect to given c.
      *
-     * @param c the c is the column number
-     *          which corresponding to whole column in Progression Array
-     * @throws  InvalidProgressionSizeException hw
+     * @param   c                               the c is the column number
+     *                                          which corresponding to whole column in Progression Array
+     * @throws  InvalidProgressionSizeException homework-defined exception
      */
     public final void showCol(final int c) throws InvalidProgressionSizeException {
         if (c < 0 || c >= col) {
@@ -252,10 +252,10 @@ class Progression_0450742 {
     /**
      * Return the whole row with respect to given r which is long[ ] type.
      *
-     * @param r the r is the row number
-     *          which corresponding to whole row in Progression Array
-     * @return  the long [ ] which corresponding to row number
-     * @throws  InvalidProgressionSizeException If given r is out of array bounds
+     * @param   r                               the r is the row number
+     *                                          which corresponding to whole row in Progression Array
+     * @return                                  the long [ ] which corresponding to row number
+     * @throws  InvalidProgressionSizeException homework-defined exception
      */
     public final long[] returnRow(final int r) throws InvalidProgressionSizeException {
         if (r < 0 || r >= row) {
@@ -268,10 +268,10 @@ class Progression_0450742 {
     /**
      * Return the whole column with respect to given c which is long[ ] type.
      *
-     * @param c the c is the column number
-     *          which corresponding to whole column in Progression Array
-     * @return  the long [ ] which corresponding to column number
-     * @throws InvalidProgressionSizeException If given r is out of array bounds
+     * @param  c                               the c is the column number
+     *                                         which corresponding to whole column in Progression Array
+     * @return                                 the long [ ] which corresponding to column number
+     * @throws InvalidProgressionSizeException homework-defined exception
      */
     public final long[] returnCol(final int c) throws InvalidProgressionSizeException {
         if (c < 0 || c >= col) {
