@@ -121,8 +121,8 @@ public class ChiSquaredTest_0450742 {
 
             /** calculate x */
             this.x = 0;
-            for (int i = 1; i < row; i++) {
-                for (int j = 1; j < col; j++) {
+            for (int i = 1; i < row + 1; i++) {
+                for (int j = 1; j < col + 1; j++) {
                     if (observ[i][0] == 0 || observ[0][j] == 0) {
                         this.x += 0;
                     } else {
