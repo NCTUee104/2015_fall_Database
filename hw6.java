@@ -16,8 +16,8 @@ import umontreal.iro.lecuyer.probdist.ChiSquareDist;
 public class ChiSquaredTest_0450742 {
 
     private double alpha;
-    private int df;
-    private double x;
+    private int df; // degree of freedom
+    private double x; // 估計值
 
     /**
      * Instantiates a new Chi squared test 0450742.
