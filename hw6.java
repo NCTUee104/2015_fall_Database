@@ -30,7 +30,11 @@ public class ChiSquaredTest_0450742 {
      */
     ChiSquaredTest_0450742(double a) throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
         Connection con = null;
-        this.alpha = a;
+        if (a <= 0 || a >=1 ) {
+            System.out.println("alpha must > 0 or < 1")
+        } else {
+            this.alpha = a;
+        }
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             con = DriverManager.getConnection("jdbc:mysql:///retail_db", "root", "cloudera");
