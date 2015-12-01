@@ -165,7 +165,11 @@ public class ChiSquaredTest_0450742 {
      * @param a the a
      */
     public final void setAlpha(double a){
-        this.alpha = a;
+        if (a <= 0 || a >=1 ) {
+            System.out.println("alpha must > 0 or < 1")
+        } else {
+            this.alpha = a;
+        }
     }
 }
 
