@@ -81,8 +81,8 @@ public class ChiSquaredTest_0450742 {
             }
             /** init observ [][] 
             *  之所以要把row跟col都+1是因為要把第0列跟第0行當做放總和的地方
-            *  是因為在計算期望值的時候需要用到列或行的總和，也因此前面的state_idx的idx才會從1開始
-            *  再來就只是把陣列初始化為0
+            *  在計算期望值的時候需要用到列或行的總和，也因此前面的state_idx的idx才會從1開始
+            *  再來就只是把陣列的值全部初始化為0
             */
             double[][] observ = new double[row + 1][col + 1]; // idx 0 := sum 
             for (int i = 0; i < row + 1; i++) {
