@@ -49,9 +49,9 @@ public class ChiSquaredTest_0450742 {
 
             /** build state_idx 
             *  當我們想要創建一個2維的陣列來存放觀察值時
-            *  需要index來存取這個2陣列
+            *  需要index來存取這個2維陣列
             *  我們用category_id當作陣列的“行”，customer_state當作陣列的“列”
-            *  id是數字可以直接拿來做index用。state不行，所以必須透過下面的hashMap來轉成數字(Key/Value的概念)
+            *  id是數字可以直接拿來做index用。state不行，所以必須透過下面的hashMap來轉換成數字(Key/Value的概念)
             *  當你給這個hashMap一個字串，他就會回傳對應的數字(eg. state_idx.get(state))
             *  在這個sql式已經把state都排序好，所以會從Ａ字頭開始，對應1....直到所有state都被對應完
             */
