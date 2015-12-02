@@ -52,8 +52,8 @@ public class ChiSquaredTest_0450742 {
             *  需要index來存取這個2維陣列
             *  我們用category_id當作陣列的“行”，customer_state當作陣列的“列”
             *  id是數字可以直接拿來做index用。state不行，所以必須透過下面的hashMap來轉換成數字(Key/Value的概念)
-            *  當你給這個hashMap一個字串，他就會回傳對應的數字(eg. state_idx.get(state))
-            *  在這個sql式已經把state都排序好，所以會從Ａ字頭開始，對應1....直到所有state都被對應完
+            *  當你給這個hashMap一個字串，他就會回傳對應的數字(eg. state_idx.get(state)會回傳對應的index)
+            *  在這個sql式已經把state都排序好，所以會從A字頭的state開始，對應1....直到所有state都被對應完
             */
             stat.executeQuery("select distinct(c.customer_state) as state from customers as c order by c.customer_state");
             ResultSet rs = stat.getResultSet(); // 接收sql回傳的東西
