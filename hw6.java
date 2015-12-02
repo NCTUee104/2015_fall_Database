@@ -108,6 +108,7 @@ public class ChiSquaredTest_0450742 {
 
             /** calculate sum at index 0
             *  把一整行加總後放在第0列，一整列加總後放在第0行
+            *  i, j 記得從1開始 
             */
             int row_sum = 0;
             for (int i = 1; i < row + 1; i++) {
