@@ -67,15 +67,15 @@ public class Retail_order_0450742 {
 		}
 		/** create Mysql connection */
 		try {
-            		Class.forName("com.mysql.jdbc.Driver").newInstance();
-            		// con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", "root", "cloudera");
-            		con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", MysqlAc, MysqlPw);
-            		if (!con_sql.isClosed()) { 
-                		System.out.println("Successfully connected to MySQL server...");
-            		}
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            // con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", "root", "cloudera");
+            con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", MysqlAc, MysqlPw);
+            if (!con_sql.isClosed()) { 
+                System.out.println("Successfully connected to MySQL server...");
+            }
 		} catch (Exception e) {
-            		System.err.println(e.getMessage());
-        	}
+            System.err.println(e.getMessage());
+        }
 		/** create table and family */
 		Admin admin = con_h.getAdmin();
 		// create Table Name
@@ -91,10 +91,10 @@ public class Retail_order_0450742 {
 		
 		/** query from mysql */
 		if (con_sql != null) {
-            Statement stat = con_sql.createStatement();
-            stat.executeQuery("select * from products as p join order_items as i on p.product_id = i.order_item_product_id join orders as o on o.order_id = i.order_item_order_id order by order_item_id");
-            ResultSet rs = stat.getResultSet();
-            while (rs.next()) {
+            		Statement stat = con_sql.createStatement();
+            		stat.executeQuery("select * from products as p join order_items as i on p.product_id = i.order_item_product_id join orders as o on o.order_id = i.order_item_order_id order by order_item_id");
+            		ResultSet rs = stat.getResultSet();
+        	while (rs.next()) {
             	// order_items
             	String rowKey = rs.getString("order_item_id");
             	Put put = new Put(Bytes.toBytes(rowKey));
