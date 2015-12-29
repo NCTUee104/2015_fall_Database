@@ -67,15 +67,15 @@ public class Retail_order_0450742 {
 		}
 		/** create Mysql connection */
 		try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            // con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", "root", "cloudera");
-            con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", MysqlAc, MysqlPw);
-            if (!con_sql.isClosed()) { 
-                System.out.println("Successfully connected to MySQL server...");
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+            		Class.forName("com.mysql.jdbc.Driver").newInstance();
+            		// con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", "root", "cloudera");
+            		con_sql = DriverManager.getConnection("jdbc:mysql:///retail_db", MysqlAc, MysqlPw);
+            		if (!con_sql.isClosed()) { 
+                		System.out.println("Successfully connected to MySQL server...");
+            		}
+		} catch (Exception e) {
+            		System.err.println(e.getMessage());
+        	}
 		/** create table and family */
 		Admin admin = con_h.getAdmin();
 		// create Table Name
