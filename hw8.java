@@ -36,7 +36,7 @@ public class ChiSquaredTest2_0450742 {
 	private double alpha;
     private int df;
     private double x; 
-
+ 
 	public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, IOException {
 		ChiSquaredTest2_0450742 test = new ChiSquaredTest2_0450742(0.5);
 		System.out.println(test.getX());
