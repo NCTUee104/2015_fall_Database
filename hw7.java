@@ -77,23 +77,24 @@ public class Retail_order_0450742 {
             System.err.println(e.getMessage());
         }
 		/** create table and family */
+		// Admin : create, drop, list, enable and disable tables, add and drop table column families
 		Admin admin = con_h.getAdmin();
 		// create Table Name
 		TableName tableName = TableName.valueOf("retail_order");
-		HTableDescriptor tableDesc = new HTableDescriptor(tableName);
+		HTableDescriptor tableDesc = new HTableDescriptor(tableName); // details about an HBase table 
 		// create Family Name
 		String[] familyName = {"order_items", "orders", "products"};
 		for(String name : familyName) {
-			HColumnDescriptor colDesc = new HColumnDescriptor(name);
+			HColumnDescriptor colDesc = new HColumnDescriptor(name); // details about a column family
 			tableDesc.addFamily(colDesc);
 		}
 		admin.createTable(tableDesc);
 		
 		/** query from mysql */
 		if (con_sql != null) {
-            		Statement stat = con_sql.createStatement();
-            		stat.executeQuery("select * from products as p join order_items as i on p.product_id = i.order_item_product_id join orders as o on o.order_id = i.order_item_order_id order by order_item_id");
-            		ResultSet rs = stat.getResultSet();
+            Statement stat = con_sql.createStatement();
+            stat.executeQuery("select * from products as p join order_items as i on p.product_id = i.order_item_product_id join orders as o on o.order_id = i.order_item_order_id order by order_item_id");
+            ResultSet rs = stat.getResultSet();
         	while (rs.next()) {
             	// order_items
             	String rowKey = rs.getString("order_item_id");
