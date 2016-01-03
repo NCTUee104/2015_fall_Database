@@ -62,18 +62,16 @@ public class ChiSquaredTest2_0450742 {
 		Table table = conn.getTable(tableName);
 
 		/** calculate row length  */
-		Scan scan = new Scan(); // Create a Scan operation across all rows.
-		scan.addColumn(Bytes.toBytes("products"), Bytes.toBytes("product_category_id")); // Get the column from the specified family with the specified qualifier.
-		ResultScanner rs = table.getScanner(scan);
+		//scan.addColumn(Bytes.toBytes("products"), Bytes.toBytes("product_category_id")); // Get the column from the specified family with the specified qualifier.
+		Scan scan1 = new Scan(); // Create a Scan operation across all rows.
+		//ResultScanner rs = table.getScanner(Bytes.toBytes("products"), Bytes.toBytes("product_category_id"));
+		ResultScanner rs = table.getScanner(scan1);
 		int max = 0;
 		for (Result r : rs) {
-			CellScanner scanner = r.cellScanner();
-			while (scanner.advance()) {
-				Cell cell = scanner.current();
-				int pid_value = Integer.valueOf(Bytes.toStringBinary(CellUtil.cloneValue(cell)));
-				if (pid_value > max) {
-					max = pid_value;
-				}
+			String pid_tmp = Bytes.toString(r.getValue(Bytes.toBytes("products"), Bytes.toBytes("product_category_id")));
+			int pid_value = Integer.valueOf(pid_tmp);
+			if (pid_value > max) {
+				max = pid_value;
 			}
 		}
 		int row = max;
@@ -82,6 +80,7 @@ public class ChiSquaredTest2_0450742 {
 		
 		// 11-21 ~ 11-31
         List<String> date_thank = Arrays.asList("11-21", "11-22", "11-23", "11-24", "11-25", "11-26", "11-27", "11-28", "11-29", "11-30");
+        //String[] thank = new String[9];
 		int col = date_thank.size();
 		double[][] observ = new double[row + 1][col + 1]; 
         for (int i = 0; i < row + 1; i++) {
@@ -92,7 +91,7 @@ public class ChiSquaredTest2_0450742 {
         this.df = (row - 1) * (col - 1); // calculate degree of freedom
 
         /** p_id  */
-		scan = new Scan(); 
+		Scan scan = new Scan(); 
 		rs = table.getScanner(scan);
 		for (Result r : rs) {
 			String pid = Bytes.toStringBinary(r.getValue(Bytes.toBytes("products"), Bytes.toBytes("product_category_id")));
@@ -103,6 +102,7 @@ public class ChiSquaredTest2_0450742 {
 				observ[idx_pid][idx_date]++;
 			}
 		}
+		rs.close();
 		int row_sum = 0;
         for (int i = 1; i < row + 1; i++) {
             for (int j = 1; j < col + 1; j++) {
@@ -150,11 +150,6 @@ public class ChiSquaredTest2_0450742 {
         return h0;
     }
 
-    /**
-     * Set alpha.
-     *
-     * @param a the a
-     */
     public final void setAlpha(double a) {
         if (a <= 0 || a >=1 ) {
             System.out.println("alpha must > 0 or < 1");
