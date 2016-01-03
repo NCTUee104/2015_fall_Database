@@ -34,7 +34,7 @@ public class ChiSquaredTest2_0450742 {
 		Scan scan1 = new Scan(); // Create a Scan operation across all rows.
 		//ResultScanner rs = table.getScanner(Bytes.toBytes("products"), Bytes.toBytes("product_category_id"));
 		ResultScanner rs = table.getScanner(scan1);
-		int max = 0;
+		int max = 0; 
 		for (Result r : rs) {
 			String pid_tmp = Bytes.toString(r.getValue(Bytes.toBytes("products"), Bytes.toBytes("product_category_id")));
 			int pid_value = Integer.valueOf(pid_tmp);
