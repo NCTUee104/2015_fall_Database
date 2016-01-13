@@ -208,8 +208,8 @@ public class ChiSquaredTest2_abc {
 		Scan scan = new Scan();
 	    scan.addColumn(Bytes.toBytes("products"), Bytes.toBytes("product_category_id"));
 	    scan.addColumn(Bytes.toBytes("orders"), Bytes.toBytes("order_date"));
-	    
-		Job job = Job.getInstance(conf_h, "Count"); // getInstance(Configuration conf, String jobName)
+	    // Creates a new Job with no particular Cluster
+		Job job = Job.getInstance(conf_h, "Count"); // Job.getInstance(Configuration conf, String JobName)
 	    job.setJarByClass(ChiSquaredTest2_abc.class); // Set the Jar by finding where a given class came from
 	    // initTableMapperJob(String table, Scan scan, Class<? extends TableMapper> mapper, Class<?> outputKeyClass, Class<?> outputValueClass, org.apache.hadoop.mapreduce.Job job)
 	    TableMapReduceUtil.initTableMapperJob(
