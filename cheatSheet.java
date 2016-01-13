@@ -89,6 +89,3 @@ HColumnDescriptor colDesc = new HColumnDescriptor(String familyName); // Constru
 tableDesc.addFamily(HColumnDescriptor family); // Adds a column family
 admin.createTable(HTableDescriptor desc);
 
-
-
-/** */
