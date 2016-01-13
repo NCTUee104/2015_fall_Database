@@ -7,7 +7,7 @@ String toString(byte[] b);   // Bytes[]轉成String
 
 /** String */
 boolean	equals(Object anObject) // 是否相等
-String substring(int beginIndex, int endIndex) // 切字串 ps. endIndex - 1 為想切的最後一個index 
+String substring(int beginIndex, int endIndex) // eg. "abcd" -> substring(0, 2) = ab
 String[] split(String regex) // 分割字串
 String.valueOf();  // 轉成String
 
@@ -23,12 +23,12 @@ String.valueOf();  // 轉成String
 ab|cd     match ab or cd
 a* a+ a?  0 or more, 1 or more, 0 or 1
 
-/** Map */
-TableMapper<KEYOUT,VALUEOUT>
-map(ImmutableBytesWritable row, Result col, Context context)
-TableReducer<KEYIN,VALUEIN,KEYOUT>
-reduce(Text key, Iterable<IntWritable> values, Context context)
-context.write(outputKey, outputValue);
+/** MapReduce */
+extends TableMapper<KEYOUT,VALUEOUT>
+@override map(ImmutableBytesWritable row, Result col, Context context)
+extends TableReducer<KEYIN,VALUEIN,KEYOUT>
+@override reduce(Text key, Iterable<IntWritable> values, Context context)
+context.write(outputKey, outputValue); 
 TableMapReduceUtil.initTableMapperJob(String table, Scan scan, Class<? extends TableMapper> mapper, Class<?> outputKeyClass, Class<?> outputValueClass, org.apache.hadoop.mapreduce.Job job)
 TableMapReduceUtil.initTableReducerJob(String table, Class<? extends TableReducer> reducer, org.apache.hadoop.mapreduce.Job job)
 
@@ -56,10 +56,21 @@ scan.addColumn(byte[] family, byte[] qualifier) // Get the column from the speci
 ResultScanner rs = table.getScanner(scan);
 for(Result r : rs)
 
+/** Filter Scan */
+Scan scan = new Scan();
+Filter f = new ValueFilter(CompareOp.EQUAL, new RegexStringComparator("Regular_Expression"));
+scan.setFilter(f);
+ResultScanner rs = table.getScanner(scan);
+
 /** Put */
 Put put = new Put(byte[] row); // Create a Put operation for the specified row
 put.addColumn(byte[] family, byte[] qualifier, byte[] value); // Add the specified column and value to this Put operation
 table.put(put);
+
+/** Delete */
+Delete del = new Delete(byte[] row);
+del.addColumn(byte[] family, byte[] qualifier); 
+table.delete(del);
 
 /** Result */
 byte[] value = result.getValue(byte[] family, byte[] qualifier); // Get the latest version of the specified column
@@ -79,3 +90,5 @@ tableDesc.addFamily(HColumnDescriptor family); // Adds a column family
 admin.createTable(HTableDescriptor desc);
 
 
+
+/** */
