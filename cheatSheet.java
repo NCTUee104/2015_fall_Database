@@ -128,6 +128,3 @@ WHERE column_name operator value
 GROUP BY column_name; // conjunction with the aggregate functions to group the result-set by one or more columns
 
 
-
-
-SELECT DISTINCT column_name,column_name FROM table_name; // 
