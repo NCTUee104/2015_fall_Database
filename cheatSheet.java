@@ -90,41 +90,56 @@ tableDesc.addFamily(HColumnDescriptor family); // Adds a column family
 admin.createTable(HTableDescriptor desc);
 
 /** SQL */
-SELECT COUNT(column_name) FROM table_name; // returns the number of values (NULL values will not be counted) of the specified column
-SELECT COUNT(*) FROM table_name; // returns the number of records in a table
-SELECT COUNT(DISTINCT column_name) FROM table_name; // returns the number of distinct values of the specified column
+// returns the number of values (NULL values will not be counted) of the specified column
+SELECT COUNT(column_name) FROM table_name; 
+// returns the number of records in a table 
+SELECT COUNT(*) FROM table_name; 
+// returns the number of distinct values of the specified column
+SELECT COUNT(DISTINCT column_name) FROM table_name; 
+// selects all rows from both tables as long as there is a match between the columns in both tables
 SELECT column_name(s)
 FROM table1
 INNER JOIN table2
-ON table1.column_name=table2.column_name; // selects all rows from both tables as long as there is a match between the columns in both tables
+ON table1.column_name=table2.column_name; 
+// returns all rows from the left table (table1), with the matching rows in the right table (table2)
 SELECT column_name(s)
 FROM table1
 LEFT JOIN table2
-ON table1.column_name=table2.column_name; // returns all rows from the left table (table1), with the matching rows in the right table (table2)
+ON table1.column_name=table2.column_name; 
+//  selects values within a range. The values can be numbers, text, or dates.
 SELECT column_name(s)
 FROM table_name
-WHERE column_name BETWEEN value1 AND value2; //  selects values within a range. The values can be numbers, text, or dates.
+WHERE column_name BETWEEN value1 AND value2; 
+// search for a specified pattern in a column
 SELECT column_name(s)
 FROM table_name
-WHERE column_name LIKE pattern; // search for a specified pattern in a column
+WHERE column_name LIKE pattern; 
+// delete rows in a table
 DELETE FROM table_name
-WHERE some_column=some_value; // delete rows in a table
+WHERE some_column=some_value; 
+// update existing records in a table
 UPDATE table_name
 SET column1=value1,column2=value2,...
-WHERE some_column=some_value; // update existing records in a table
+WHERE some_column=some_value; 
+// ORDER BY keyword sorts the records in ascending order by default
 SELECT column_name, column_name
 FROM table_name
-ORDER BY column_name ASC|DESC, column_name ASC|DESC; // ORDER BY keyword sorts the records in ascending order by default
+ORDER BY column_name ASC|DESC, column_name ASC|DESC; 
+// extract only those records that fulfill a specified criterion
 SELECT column_name,column_name
 FROM table_name
-WHERE column_name operator value; // extract only those records that fulfill a specified criterion
+WHERE column_name operator value; 
+// return only distinct (different) values
 SELECT DISTINCT column_name,column_name
-FROM table_name; // return only distinct (different) values
-SELECT MAX(column_name) FROM table_name; // returns the largest value of the selected column
-SELECT SUM(column_name) FROM table_name; // returns the total sum of a numeric column
+FROM table_name; 
+// returns the largest value of the selected column
+SELECT MAX(column_name) FROM table_name; 
+// returns the total sum of a numeric column
+SELECT SUM(column_name) FROM table_name; 
+// conjunction with the aggregate functions to group the result-set by one or more columns
 SELECT column_name, aggregate_function(column_name)
 FROM table_name
 WHERE column_name operator value
-GROUP BY column_name; // conjunction with the aggregate functions to group the result-set by one or more columns
+GROUP BY column_name; 
 
 
